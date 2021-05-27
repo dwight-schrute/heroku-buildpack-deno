@@ -29,9 +29,9 @@ $BIN_DIR/deno install --allow-read --allow-write --allow-env --allow-net --allow
 # set environment variables
 PROFILE_PATH="$BUILD_DIR/.profile.d/deno.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$HOME/.heroku/bin:/app/.deno/bin:$PATH"' >> $PROFILE_PATH
+echo 'export PATH="$HOME/.heroku/bin:$HOME/.deno/bin:$PATH"' >> $PROFILE_PATH
 echo 'export DENO_DIR="$HOME/.heroku/cache"' >> $PROFILE_PATH
-
+cp -rpT $HOME $BUILD_DIR
 set +e
 
 # download dependencies
